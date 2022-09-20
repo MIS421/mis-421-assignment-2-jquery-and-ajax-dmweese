@@ -4,14 +4,30 @@
 
 <head>
 
-  <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
 
 </head>
 
 <body>
 
-  <script type="text/javascript" src="./script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
+    <script type="text/javascript" src="./script.js"></script>
+
+
+    <h1>Devin's Incredibly Amazing Search Engine Extravaganza :D</h1>
+
+
+    <form action="/url" method="get">
+        <input type="text" />
+    </form>
+    <div id="time"></div>
+    <div id="searchResults"></div>
+    <button onclick="apiSearch()">Search</button>
+
+    <button id="" onclick="clicked()">Display time</button>
 </body>
 
 </html>
