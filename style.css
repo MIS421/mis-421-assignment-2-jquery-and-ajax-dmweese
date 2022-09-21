@@ -1,1 +1,23 @@
- 
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    cursor: pointer;
+}
+
+.pagecontainer {
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.titlecontainer {
+    margin: 40px 0px 40px 0px;
+}
+
+button {
+    margin: 10px 0px 10px 0px;
+}

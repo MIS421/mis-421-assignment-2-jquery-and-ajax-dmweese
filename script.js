@@ -10,7 +10,7 @@ function apiSearch() {
     };
 
         $.ajax({
-            url: 'https://api.bing.microsoft.com/' + $.param(params),
+            url: 'https://api.bing.microsoft.com/v7.0/search?' + $.param(params),
             beforeSend: function (xhrObj) {
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "1b2b58c759854247916bd2add92e09db");
             },
@@ -28,14 +28,40 @@ function apiSearch() {
             .fail(function () {
                 alert("error");
             });
+    console.log(results)
 }
 
-function clicked() {
-    var d = new Date;
-    document.getElementById('time').innerHTML = d;
-}  
+$(document).ready(function () {
+    $("#timeButton").click(function () {
+        var d = new Date;
+        var time = d.getHours() + ":" + d.getMinutes();
+        $("#time").html(time);
+    });
 
-$("#time").click(function () {
-    var d = new Date;
-    document.getElementById('time').innerHTML = d;
 })
+
+function luckySearch() {
+    var params = {
+        "q": $("#query").val(),
+        "count": "50",
+        "offset": "0",
+        "mkt": "en-us"
+    };
+
+    $.ajax({
+        url: 'https://api.bing.microsoft.com/v7.0/search?' + $.param(params),
+        beforeSend: function (xhrObj) {
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "1b2b58c759854247916bd2add92e09db");
+        },
+        type: "GET",
+    })
+        .done(function (data) {
+            len = data.webPages.value.length;
+            window.open(data.webPages.value[0].url, "_blank")
+
+        })
+        .fail(function () {
+            alert("error");
+        });
+    console.log(results)
+}
